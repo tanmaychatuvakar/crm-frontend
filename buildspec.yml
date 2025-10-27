@@ -1,0 +1,16 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo running npm install
+      - npm install
+      - npm run build:$ENV
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing package to S3
+      - aws s3 cp dist s3://$CONTENT_BUCKET --recursive

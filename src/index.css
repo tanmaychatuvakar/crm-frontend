@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: rgb(209 213 219);
+    --secondary: #ddd;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) var(--primary);
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--secondary);
+    border-radius: 10px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--secondary);
+    border: 3px solid var(--primary);
+    border-radius: 10px;
+  }
+
+  /* Works for Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Works for Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+.fancybox__container {
+  pointer-events: auto;
+}
+
+input:focus ~ .input-text,
+input:not(:placeholder-shown) ~ .input-text,
+textarea:focus ~ .input-text,
+textarea:not(:placeholder-shown) ~ .input-text {
+  @apply transform -translate-y-6 -translate-x-2 scale-75;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  transition: color 0.3s;
+}
+
+.arrow-container {
+  transition: transform 0.3s;
+}
+
+/* For the hover effect */
+.nav-group:hover .arrow-container {
+  transform: rotate(-180deg);
+}
+
+/* Hide the submenu by default and show it on hover */
+.nav-submenu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 1000;
+}
+
+.nav-group:hover .nav-submenu {
+  display: flex;
+  flex-direction: column;
+}
+
+.sub-arrow-container {
+  transition: transform 0.3s;
+}
+
+.sub-group:hover .sub-arrow-container {
+  transform: translateX(0.25rem);
+}
