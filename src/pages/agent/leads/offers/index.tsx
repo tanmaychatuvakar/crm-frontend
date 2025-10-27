@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import { Column } from "@/types/column.type";
 import { ReusableSidebar } from "@/components/ReusableSideBar";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/Navba";
 import { useGetOffersQuery } from "@/app/services/api";
 import { GetOfferPayload } from "@/types/offer.type";
 // import { useGetOffersQuery } from "@/app/services/api";

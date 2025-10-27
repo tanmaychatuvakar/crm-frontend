@@ -2,7 +2,7 @@ import { ReusableSidebar } from "@/components/ReusableSideBar";
 import Assignments from "./assignments";
 import { Index } from "./index/index";
 import Uploaded from "./uploaded";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/Navba";
 import { Outlet } from "react-router-dom";
 
 const sections = [

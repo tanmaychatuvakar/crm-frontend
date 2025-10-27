@@ -2,7 +2,7 @@ import { ReusableSidebar } from "@/components/ReusableSideBar";
 import { Outlet } from "react-router-dom";
 import { Index } from "./index/index";
 import { Show } from "./show";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/Navba";
 
 const sections = [
   {

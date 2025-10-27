@@ -3,7 +3,7 @@ import { Index } from "./index/index";
 import { Outlet } from "react-router-dom";
 import { Create } from "./create";
 import { Edit } from "./edit";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/Navba";
 
 const sections = [
   {

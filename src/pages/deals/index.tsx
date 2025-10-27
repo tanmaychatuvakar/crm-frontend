@@ -9,7 +9,7 @@ import { Column } from "@/types/column.type";
 import { getFormattedDate } from "@/utils";
 import { GetDealPayload } from "@/types/deal.type";
 import { ReusableSidebar } from "@/components/ReusableSideBar";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/Navba";
 
 type Payload = GetDealPayload<{ offer: true }>;
 

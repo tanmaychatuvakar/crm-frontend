@@ -8,7 +8,7 @@ import { PhotoRequests } from "./photo-requests";
 import { ExtensionRequests } from "./extension-requests";
 import { UnpublishRequests } from "./unpublish-requests";
 import { useMemo } from "react";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/Navba";
 
 const Layout = () => {
   const { type } = useParams();

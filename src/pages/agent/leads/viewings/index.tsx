@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import { Column } from "@/types/column.type";
 import { ReusableSidebar } from "@/components/ReusableSideBar";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/Navba";
 import { useGetViewingsQuery } from "@/app/services/api";
 import { GetViewingPayload } from "@/types/viewing.type";
 // import { useGetViewingsQuery } from "@/app/services/api";

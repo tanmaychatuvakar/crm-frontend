@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import { Column } from "@/types/column.type";
 import { ReusableSidebar } from "@/components/ReusableSideBar";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/Navba";
 import { useGetLeadContactsQuery } from "@/app/services/api";
 import { GetLeadContactPayload } from "@/types/lead-contact.type";
 // import { useGetCallsQuery } from "@/app/services/api";

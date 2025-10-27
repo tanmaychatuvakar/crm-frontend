@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/Navba";
 import { ReusableSidebar } from "@/components/ReusableSideBar";
 import { Outlet } from "react-router-dom";
 import Calls from "./calls";
