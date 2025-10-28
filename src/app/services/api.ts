@@ -149,7 +149,16 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_API_URL,
     paramsSerializer,
-    credentials: "include",
+    prepareHeaders: (headers, { getState }) => {
+      const state = getState() as any;
+      const token = state.auth?.token;
+      
+      if (token) {
+        headers.set("authorization", `Bearer ${token}`);
+      }
+      
+      return headers;
+    },
   }),
   tagTypes: [
     "Common",

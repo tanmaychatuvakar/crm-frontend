@@ -14,17 +14,39 @@ export interface AuthState {
   user: User | null;
 }
 
+const getInitialToken = () => {
+  try {
+    return localStorage.getItem("token");
+  } catch {
+    return null;
+  }
+};
+
 const initialState: AuthState = {
   isLoggedIn: false,
-  token: null,
-  user: null,
+  token: getInitialToken(),
+  user: getInitialToken() ? (() => {
+    try {
+      const decoded = jwtDecode<Omit<User, "id"> & { sub: string }>(getInitialToken()!);
+      return {
+        id: decoded.sub,
+        email: decoded.email,
+        role: decoded.role,
+      };
+    } catch {
+      return null;
+    }
+  })() : null,
 };
 
 type JwtPayload = Omit<User, "id"> & { sub: string };
 
 export const authSlice = createSlice({
   name: "auth",
-  initialState,
+  initialState: {
+    ...initialState,
+    isLoggedIn: !!initialState.token,
+  },
   reducers: {
     setToken(state, action: PayloadAction<string>) {
       const decoded = jwtDecode<JwtPayload>(action.payload);
@@ -35,6 +57,12 @@ export const authSlice = createSlice({
         email: decoded.email,
         role: decoded.role,
       };
+      
+      try {
+        localStorage.setItem("token", action.payload);
+      } catch {
+        // localStorage may not be available
+      }
     },
   },
   extraReducers(builder) {
@@ -42,6 +70,12 @@ export const authSlice = createSlice({
       state.isLoggedIn = false;
       state.token = null;
       state.user = null;
+      
+      try {
+        localStorage.removeItem("token");
+      } catch {
+        // localStorage may not be available
+      }
     });
   },
 });

@@ -5,7 +5,6 @@ import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { setToken } from "@/app/slices/auth";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
-import { getCookieByName } from "@/utils";
 import { Alert } from "@/components/shared";
 
 export const SignIn = () => {
@@ -20,7 +19,7 @@ export const SignIn = () => {
   }, []);
 
   useEffect(() => {
-    const token = getCookieByName("token");
+    const token = localStorage.getItem("token");
     if (token) login(token);
   }, []);
 

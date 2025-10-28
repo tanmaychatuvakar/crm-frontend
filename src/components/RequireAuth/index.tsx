@@ -8,7 +8,7 @@ const RequireAuth: React.FC<{ allowedRoles: string[] }> = () => {
   if (isLoggedIn) {
     return <Outlet />;
   }
-  <Navigate to="/auth/sign-in" state={{ from: location }} replace />;
+  return <Navigate to="/auth/sign-in" state={{ from: location }} replace />;
 };
 
 export default RequireAuth;
